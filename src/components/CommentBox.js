@@ -1,5 +1,6 @@
 import React from 'react';
 import request from 'superagent';
+import { ProgressBar, Well, PageHeader } from 'react-bootstrap';
 
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
@@ -22,12 +23,12 @@ var CommentBox = React.createClass({
   render: function () {
     if (this.state.comments.length === 0) {
       return (
-        <p>Loading.....</p>
+        <p><ProgressBar active now={100} label="Loading......" /></p>
       )
     }
     return (
       <div className="comment-box">
-        <h1>Comment Box</h1>
+        <PageHeader>Comment Box</PageHeader>
         <CommentList comments={this.state.comments}/>
         <CommentForm addComment={this.addComment}/>
       </div>

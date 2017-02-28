@@ -6,7 +6,7 @@ var CommentList = React.createClass({
   render: function () {
     return (
       <div className="comment-list">
-        <h2>Comment List</h2>
+        <h2>Comments:</h2>
         {this.renderComments()}
       </div>
     );
@@ -14,7 +14,7 @@ var CommentList = React.createClass({
   renderComments: function () {
     return this.props.comments.map(function (comment, i) {
       return (
-        <Comment key={i} author={comment.author} text={comment.text}/>
+        <Comment key={i} author={comment.author} text={comment.text} date={comment.created_at}/>
       )
     })
   }

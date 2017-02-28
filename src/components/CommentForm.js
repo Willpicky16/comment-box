@@ -1,5 +1,5 @@
 import React from 'react';
-import request from 'superagent';
+import { Button, FormControl, ControlLabel, Well } from 'react-bootstrap';
 
 var CommentForm = React.createClass({
   getInitialState: function () {
@@ -10,16 +10,20 @@ var CommentForm = React.createClass({
   },
   render: function () {
     return (
+      <Well>
       <div className="comment-form">
         <h2>What are you thinking?</h2>
         <form onSubmit={this.handleSubmit}>
-          <p><label>Name:</label></p>
-          <input type="text" value={this.state.author} onChange={this.handleAuthorChange}></input>
-          <p><label>Comment:</label></p>
-          <textarea value={this.state.text} onChange={this.handleTextChange}></textarea>
-          <button type="submit">Post Comment</button>
+          <ControlLabel>Name:</ControlLabel>
+          <FormControl placeholder="Please Enter Name" type="text" value={this.state.author} onChange={this.handleAuthorChange}/>
+          <br></br>
+          <ControlLabel>Comment:</ControlLabel>
+          <FormControl componentClass="textarea" placeholder="Please Enter Comment" value={this.state.text} onChange={this.handleTextChange}/>
+          <br></br>
+          <Button bsStyle="success" type="submit">Post Comment</Button>
         </form>
       </div>
+      </Well>
     );
   },
   handleSubmit: function (event) {
